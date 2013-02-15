@@ -1,66 +1,14 @@
 #CodeIgniter-Language
-Set the language code from URI - Extra helpers to switch language and build url.
+A CI spark for making auto-detecting the proper language to serve easy.
 
-##Credit
-Based heavily on the language spark by Eric@devtime.com
-
-##Detection language rules
+##Default auto detection flow
 1. Check the lang code in the subdomain. It's the master rule.
 2. Check the lang code in the first segment in URI.
-2. If no lang code is in subdomain or URI, check for the code in a session if activated.
-3. If no session is there, then check the browser language if available and activated.
-4. As the last rule, set the lang code to the default one defined in config file.
-
-##Configuration
-Once installed, you need __to copy or move `MY_url_helper.php`__ in `application/helpers`
-
-Check the `config/language.php` to fit your needs.
-	
-	*  language_default
-	*  language_languages
-	*  language_detect_browser
-	*  language_session_name
-
-Add those lines in `application/config/routes.php` setting `$group_langs` properly.
-
-	$group_langs = 'en|es|fr';
-	$route["($group_langs)"] = $route['default_controller'];
-	$route["($group_langs)/(:any)$"] = "$2";
-
-##Usage
-In your controller or your controller root
-
-	$this->load->spark('language/1.0.0');
-
-Then you can use those methods if needed :
-
-Refers to the current lang code
-	
-	$lang = $this->language->get_lang();
-
-Refers to the current language directory name in application/language
-	
-	$language = $this->language->get_language();
-
-##helpers  
-
-__switch_lang()__
-
-Build the current URL adding the lang code $lang as the first segment. 
-	
-	$url_lang = switch_lang($lang);
-
-__site_url()__
-
-Override site_url() helper building the URL automatically with the current lang code.
-	
-	$url_lang = site_url(controller/action);
-
-Fallback to default behaviour
-	
-	$url_without_lang = site_url(controller/action, true);
+3. If no lang code is in subdomain or URI check the browser language if available and activated.
+4. As the last rule, set the lang code to the default one defined in the CI global config file.
 
 
-
+##Credit
+Rewrite of the kitlang language spark by Eric@devtime.com
 
 
