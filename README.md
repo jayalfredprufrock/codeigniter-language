@@ -1,5 +1,5 @@
 #CodeIgniter-Language
-A CI spark for making auto-detecting the proper language to serve easy.
+A CI spark making auto-detecting the proper language to serve easy.
 
 ##Default auto detection flow
 1. Check the lang code in the subdomain. It's the master rule.

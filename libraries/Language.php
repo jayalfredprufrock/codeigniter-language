@@ -28,14 +28,14 @@ class Language
 	 * Defined in config file
 	 * @var array
 	 */
-	private $languages = array();
+	private $_languages = array();
 	
 	/**
 	 * Array of all autodetect methods to try (subdomain, uri, browser)
 	 * Defined in config file
 	 * @var array
 	 */
-	private $autodetect = array();
+	private $_autodetect = array();
 
 
 	private $_ci;
@@ -77,7 +77,7 @@ class Language
 			$this->set();
 		}	
 			
-		return $fullname ? $this->languages[$this->lang] : $this->lang;
+		return $fullname ? $this->_languages[$this->lang] : $this->lang;
 	}
 	
 	
@@ -98,7 +98,7 @@ class Language
 		
 		if ($this->lang){
 			
-			$this->_ci->config->set_item('language', $this->lang);
+			$this->_ci->config->set_item('language', $this->_languages[$this->lang]);
 			
 			return $this->lang;
 		}
@@ -118,7 +118,7 @@ class Language
 		}
 		
 		//return autodetected language or default
-		return $this->lang ?: array_search($this->config->item('language'), $this->_languages);
+		return $this->lang ?: array_search($this->_ci->config->item('language'), $this->_languages);
 	}
 	
 	private function detect_subdomain()
