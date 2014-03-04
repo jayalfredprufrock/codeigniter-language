@@ -1,0 +1,8 @@
+{
+	"description" : "A CI spark making auto-detecting the proper language to serve easy.",
+	"name" : "jayalfredprufrock/codeigniter-language",
+		"license": "MIT",
+	"require": {
+		"php": ">=5.3",
+	}
+}
