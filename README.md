@@ -1,4 +1,4 @@
-#CodeIgniter-Language
+#codeigniter-language
 A CI spark making auto-detecting the proper language to serve easy.
 
 ##Default auto detection flow
